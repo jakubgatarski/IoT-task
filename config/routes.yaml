@@ -1,0 +1,10 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+receive_event:
+    path: /api/event
+    controller: App\Controller\EventController::receiveEvent
+    methods: POST
