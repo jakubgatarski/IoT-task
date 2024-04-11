@@ -1,10 +1,16 @@
+# Backend specific (Symfony)
+/backend/vendor/
+/backend/var/cache/
+/backend/var/log/
+/backend/var/sessions/
+/backend/.env.local
+/backend/.env.*.local
+/backend/phpunit.xml
+/backend/public/build/
 
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
-###< symfony/framework-bundle ###
+# Frontend specific (Angular)
+/app/dist/
+/app/node_modules/
+/app/*.log
+/app/environments/environment.ts
+/app/environments/environment.prod.ts

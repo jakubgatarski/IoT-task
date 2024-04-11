@@ -1,0 +1,9 @@
+<div class="container mt-4">
+    <h2 class="mb-3">Lista zdarzeń</h2>
+    <ul class="list-unstyled">
+        <li class="mb-2 p-3 border rounded bg-light" *ngFor="let event of events">
+            Device ID: {{ event.deviceId }}, Event Date: {{ event.eventDate | date:'medium' }}, Type: {{ event.type }}
+            <button class="btn btn-primary float-right" (click)="openDetails(event)">Szczegóły</button>
+        </li>
+    </ul>
+</div>

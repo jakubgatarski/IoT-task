@@ -1,0 +1,29 @@
+<div class="container mt-4" *ngIf="event; else loading">
+    <h2 class="mb-3">Szczegóły Zdarzenia</h2>
+    <p class="font-weight-bold">ID Urządzenia: <span class="font-weight-normal">{{ event.deviceId }}</span></p>
+    <p class="font-weight-bold">Data Zdarzenia: <span class="font-weight-normal">{{ event.eventDate | date:'medium' }}</span></p>
+    <p class="font-weight-bold">Typ Zdarzenia: <span class="font-weight-normal">{{ event.type }}</span></p>
+
+    <div *ngIf="event.type === 'deviceMulfunction'" class="mt-4">
+        <h4 class="mb-2">Usterka Urządzenia</h4>
+        <p class="font-weight-bold">Kod Powodu: <span class="font-weight-normal">{{ event.evtData.reasonCode }}</span></p>
+        <p class="font-weight-bold">Opis Powodu: <span class="font-weight-normal">{{ event.evtData.reasonText }}</span></p>
+    </div>
+
+    <div *ngIf="event.type === 'temperatureExceeded'" class="mt-4">
+        <h4 class="mb-2">Przekroczenie Temperatury</h4>
+        <p class="font-weight-bold">Aktualna Temperatura: <span class="font-weight-normal">{{ event.evtData.temp }}</span></p>
+        <p class="font-weight-bold">Próg Temperatury: <span class="font-weight-normal">{{ event.evtData.threshold }}</span></p>
+    </div>
+
+    <div *ngIf="event.type === 'doorUnlocked'" class="mt-4">
+        <h4 class="mb-2">Odblokowanie Drzwi</h4>
+        <p class="font-weight-bold">Data Odblokowania: <span class="font-weight-normal">{{ event.evtData.unlockDate | date:'medium' }}</span></p>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="container text-center">
+        <p class="m-3">Ładowanie szczegółów zdarzenia...</p>
+    </div>
+</ng-template>
